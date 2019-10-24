@@ -12,70 +12,50 @@ As mentioned in the lesson before, a good understanding of probability starts wi
 You will be able to:
 
 * Use Python to perform set operations
-* Use Python to demonstrate the inclusion/exclusion principle
 
 
-## Exploring Set Operations Using a Venn Diagram
+## Exploring Set Operations Using Python
 
-Let's start with a pretty conceptual example. Let's consider the following sets:
+Let's consider the following sets:
 
    - $\Omega$ = positive integers between [1, 12]
    - $A$= even numbers between [1, 10]
    - $B = \{3,8,11,12\}$
    - $C = \{2,3,6,8,9,11\}$
-    
 
-#### a. Illustrate all the sets in a Venn Diagram like the one below. The rectangular shape represents the universal set.
+#### Create sets A, B and C and the universal set $\Omega$ in Python.
 
-<img src="./images/venn_diagr.png" width="600">
-
-
-#### b. Using your Venn Diagram, list the elements in each of the following sets:
-
-- $ A \cap B$
-- $ A \cup C$
-- $A^c$ 
-- The absolute complement of B
-- $(A \cup B)^c$
-- $B \cap C'$
-- $A\backslash B$
-- $C \backslash (B \backslash A)$ 
-- $(C \cap A) \cup (C \backslash B)$
-
-
-        
-        
-#### c. For the remainder of this exercise, let's  create sets A, B and C and universal set U in Python and test out the results you came up with. Sets are easy to create in Python. For a guide to the syntax, follow some of the documentation [here](https://www.w3schools.com/python/python_sets.asp)
+Hint: For a guide to the syntax, follow some of the documentation [here](https://www.w3schools.com/python/python_sets.asp)
 
 
 ```python
 # Create set A
 A = None
-'Type A: {}, A: {}'.format(type(A), A) # "Type A: <class 'set'>, A: {2, 4, 6, 8, 10}"
+print('Type A: {}, A: {}'.format(type(A), A)) # "Type A: <class 'set'>, A: {2, 4, 6, 8, 10}"
 ```
 
 
 ```python
 # Create set B
 B = None
-'Type B: {}, B: {}'.format(type(B), B) # "Type B: <class 'set'>, B: {8, 11, 3, 12}"
+print('Type B: {}, B: {}'.format(type(B), B)) # "Type B: <class 'set'>, B: {8, 11, 3, 12}"
 ```
 
 
 ```python
 # Create set C
 C = None
-'Type C: {}, C: {}'.format(type(C), C) # "Type C: <class 'set'>, C: {2, 3, 6, 8, 9, 11}"
+print('Type C: {}, C: {}'.format(type(C), C)) # "Type C: <class 'set'>, C: {2, 3, 6, 8, 9, 11}"
 ```
 
 
 ```python
-# Create universal set U
+# Create the universal set. Instead of naming it Omega, we name it U, for universal. 
 U = None
-'Type U: {}, U: {}'.format(type(U), U) # "Type U: <class 'set'>, U: {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}"
+print('Type U: {}, U: {}'.format(type(U), U)) # "Type U: <class 'set'>, U: {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}"
 ```
 
-Now, verify your answers in section 1 by using the correct methods in Python. To provide a little bit of help, you can find a table with common operations on sets below.
+Here is a table with common set operations in Python: 
 
 | Method        |	Equivalent |	Result |
 | ------                    | ------       | ------    |
@@ -85,6 +65,18 @@ Now, verify your answers in section 1 by using the correct methods in Python. To
 | s.intersection(t)         |	s & t      | new set with elements common to s and t
 | s.difference(t)           |	s - t 	   | new set with elements in s but not in t
 | s.symmetric_difference(t) |	s ^ t      | new set with elements in either s or t but not both
+
+Use this table to compute the following:
+
+* $ A \cap B$
+* $ A \cup C$
+* $A^c$
+* The absolute complement of B
+* $(A \cup B)^c$
+* $B \cap C'$
+* $A\backslash B$
+* $C \backslash (B \backslash A)$
+* $(C \cap A) \cup (C \backslash B)$
 
 #### 1. $ A \cap B$
 
@@ -150,45 +142,7 @@ C_inters_A_union_C_min_B= None
 C_inters_A_union_C_min_B # {2, 6, 8, 9}
 ```
 
-## The Inclusion Exclusion Principle
-
-Use A, B and C from exercise one to verify the inclusion exclusion principle in Python. 
-You can use the sets A, B and C as used in the previous exercise. 
-
-Recall from the previous lesson that:
-
-$$\mid A \cup B\cup C\mid = \mid A \mid + \mid B \mid + \mid C \mid - \mid A \cap B \mid  -\mid A \cap C \mid - \mid B \cap C \mid  + \mid A \cap B \cap C \mid $$
-
-Combining these main commands:
-
-| Method        |	Equivalent |	Result |
-| ------                    | ------       | ------    |
-| a.union(b)                |	A $\mid$ B | new set with elements from both a and b
-| a.intersection(b)         |	A & B      | new set with elements common to a and b
-
-along with the `len(x)` function to get to the cardinality of a given x ("|x|").
-
-What you'll do is translate the left hand side of the equation for the inclusion principle in the object `left_hand_eq`, and the right hand side in the object `right_hand_eq` and see if the results are the same.
-
-
-
-```python
-left_hand_eq = None
-print(left_hand_eq)  # 9 elements in the set
-```
-
-
-```python
-right_hand_eq = None
-print(right_hand_eq) # 9 elements in the set
-```
-
-
-```python
-None # Use a comparison operator to compare `left_hand_eq` and `right_hand_eq`. Needs to say "True".
-```
-
-## Set Operations in Python
+## More Set Operations in Python
 
 Mary is preparing for a road trip from her hometown, Boston, to Chicago. She has quite a few pets, yet luckily, so do her friends. They try to make sure that they take care of each other's pets while someone is away on a trip. A month ago, each respective person's pet collection was given by the following three sets:
 
@@ -255,28 +209,6 @@ Nina # 7
 
 Taking care of 7 species is something Nina feels comfortable doing!
 
-## Writing Down the Elements in a Set
-
-
-Mary dropped off her Pet's at Nina's house and finally made her way to the highway. Awesome, her vacation has begun!
-She's approaching an exit. At the end of this particular highway exit, cars can either turn left (L), go straight (S) or turn right (R). It's pretty busy and there are two cars driving close to her. What you'll do now is create several sets. You won't be using Python here, it's sufficient to write the sets down on paper. A good notion of sets and subsets will help you calculate probabilities in the next lab!
-
-Note: each set of action is what _all three cars_ are doing at any given time
-
-a. Create a set $A$ of all possible outcomes assuming that all three cars drive in the same direction.
-           
-b. Create a set $B$ of all possible outcomes assuming that all three cars drive in a different direction.
-             
-c. Create a set $C$ of all possible outcomes assuming that exactly 2 cars turn right.
-            
-d. Create a set $D$ of all possible outcomes assuming that exactly 2 cars drive in the same direction.
-
-                          
-e. Write down the interpretation and give all possible outcomes for the sets denoted by:
- - I. $D'$ 
- - II. $C \cap D$, 
- - III. $C \cup D$. 
-
 ## Optional Exercise: European Countries
 
 Use set operations to determine which European countries are not in the European Union. You just might have to clean the data first with pandas.
@@ -305,4 +237,4 @@ eu.head(3)
 
 ## Summary
 
-In this lab, you practiced your knowledge on sets, such as common set operations, the use of Venn Diagrams, the inclusion exclusion principle, and how to use sets in Python! 
+In this lab, you practiced your knowledge on sets, such as common set operations and how to use sets in Python! 
